@@ -41,6 +41,7 @@
         this.todoItems = [];
       },
       getTodoItem: function (index) {
+        localStorage.clear();
         return this.todoItems[index];
       }
     },
