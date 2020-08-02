@@ -1,10 +1,10 @@
 <template>
   <div>
     <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
+      <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
         {{ todoItem }}
         <span class="removeBtn">
-          <i class="fas fa-trash-alt"></i>
+          <i class="fas fa-trash-alt" v-on:click="removeTodo(todoItem, index)"></i>
         </span>
       </li>
     </ul>
@@ -25,6 +25,12 @@
           if (localStorage.key(i) !== 'loglevel:webpack-dev-server')
             this.todoItems.push(localStorage.key(i));
         }
+      }
+    },
+    methods: {
+      removeTodo(todoItem, index) {
+        localStorage.removeItem(todoItem);
+        this.todoItems.splice(index, 1);
       }
     }
   }
