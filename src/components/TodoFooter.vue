@@ -10,6 +10,7 @@
     methods: {
       clearTodo() {
         localStorage.clear();
+        this.$emit('clearTodoItem')
       }
     }
   }
