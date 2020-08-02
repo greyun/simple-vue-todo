@@ -23,8 +23,7 @@
         this.$emit('removeTodoItem', todoItem.item, index);
       },
       toggleComplete(todoItem) {
-        todoItem.completed = !todoItem.completed;
-        localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
+        this.$emit('toggleTodoItem', todoItem);
       }
     }
   }
