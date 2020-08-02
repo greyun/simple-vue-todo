@@ -17,7 +17,7 @@
     },
     methods: {
       addTodo() {
-        localStorage.setItem('newTodoItem', this.newTodoItem);
+        localStorage.setItem(this.newTodoItem, this.newTodoItem);
         this.clearInput();
       },
       clearInput() {
