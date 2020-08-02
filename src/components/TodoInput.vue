@@ -18,8 +18,7 @@
     methods: {
       addTodo() {
         if (this.newTodoItem !== '') {
-          let obj = {item: this.newTodoItem, completed: false};
-          localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+          this.$emit('addTodoItem', this.newTodoItem);
           this.clearInput();
         }
       },
