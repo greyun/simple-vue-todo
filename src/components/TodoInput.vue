@@ -1,13 +1,13 @@
 <template>
-    <div>
-        Input
-    </div>
+  <div>
+    Input
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "TodoInput"
-    }
+  export default {
+    name: "TodoInput"
+  }
 </script>
 
 <style scoped>
