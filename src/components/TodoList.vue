@@ -2,12 +2,12 @@
   <div>
     <ul>
       <li v-for="(todoItem, index) in propsdata" v-bind:key="index" class="shadow">
-        <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(todoItem)"></i>
+        <i class="checkBtn fas fa-check" v-bind:class="{checkBtnCompleted: todoItem.completed}" v-on:click="toggleComplete(index)"></i>
         <span v-bind:class="{textCompleted: todoItem.completed}">
           {{ todoItem.item }}
         </span>
         <span class="removeBtn">
-          <i class="fas fa-trash-alt" v-on:click="removeTodo(todoItem, index)"></i>
+          <i class="fas fa-trash-alt" v-on:click="removeTodo(index)"></i>
         </span>
       </li>
     </ul>
@@ -19,11 +19,11 @@
     name: "TodoList",
     props: ['propsdata'],
     methods: {
-      removeTodo(todoItem, index) {
-        this.$emit('removeTodoItem', todoItem.item, index);
+      removeTodo(index) {
+        this.$emit('removeTodoItem', index);
       },
-      toggleComplete(todoItem) {
-        this.$emit('toggleTodoItem', todoItem);
+      toggleComplete(index) {
+        this.$emit('toggleTodoItem', index);
       }
     }
   }
