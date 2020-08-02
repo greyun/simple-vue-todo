@@ -17,8 +17,11 @@
     },
     methods: {
       addTodo() {
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
-        this.clearInput();
+        if (this.newTodoItem !== '') {
+          let obj = {item: this.newTodoItem, completed: false};
+          localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+          this.clearInput();
+        }
       },
       clearInput() {
         this.newTodoItem = "";
